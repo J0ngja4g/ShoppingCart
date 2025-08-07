@@ -12,7 +12,7 @@ public class Test1 {
         catalog.addProduct(c);
         catalog.addProduct(a);
 
-        CartItem item1 = new CartItem(catalog.findByld("P001"), 2);
+        CartItem item1 = new CartItem(catalog.findById("P001"), 2);
         CartItem item2 = new CartItem(b, 3);
 
     }

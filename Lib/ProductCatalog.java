@@ -2,29 +2,37 @@ package Lib;
 import java.util.ArrayList;
 
 public class ProductCatalog {
-    ArrayList<Product> products;
+    private ArrayList<Product>  products = new ArrayList<>();
+    private void checkReb(){
+        if(products == null){
+            throw new RuntimeException("RI violated : products list cannot be null.");
+        }
 
-    public void checkReb() {
-        if (products == null) {
-            throw new RuntimeException("Product cannot be null");
+        for (int i =0; i < products.size();i++){
+            for(int j = i +1 ; j < products.size();j++){
+                if (products.get(i).equals(products.get(j))){
+                    throw new RuntimeException("RI violated : catalog contains duplicate products.");
+                }
+            }
         }
-        if (products.equals(Product.getproductID)) {
-            throw new RuntimeException("Product cannot be same ProductID");
-        }
+    }
+    public ProductCatalog(){
+        checkReb();
     }
 
     public void addProduct(Product product){
-        if (product != null && !products.contains(product)) {
-            product.add(product);
+        if (product != null && !products.contains(product)){
+            products.add(product);
         }
         checkReb();
     }
-    public Product findByld(String productID){
-        for(Product p : products){
-            if (p.getproductID().equals(productID)) {
+
+    public Product findById(String productId){
+        for (Product p : products){
+            if (p.getproductID().equals(productId)){
                 return p;
             }
         }
-        return null;
+        return null ;
     }
 }

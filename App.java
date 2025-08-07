@@ -93,8 +93,8 @@ public class App{
         checkpass("Promotion update works", pricingService.calculateItemPrice(threeApples) == 15.0); // 30 * 0.5 = 15.0
 
         System.out.println("\n--- Testing ProductCatalog ---");
-        checkpass("Find existing product", catalog.findByld("P001").equals(apple));
-        checkpass("Find non-existent product returns null", catalog.findByld("P999") == null);
+        checkpass("Find existing product", catalog.findById("P001").equals(apple));
+        checkpass("Find non-existent product returns null", catalog.findById("P999") == null);
 
         // --- สรุปผล ---
         System.out.println("\n--------------------");

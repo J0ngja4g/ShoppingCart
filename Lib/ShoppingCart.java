@@ -16,7 +16,7 @@ public class ShoppingCart {
     public void addItem(String productId, int quantity) {
         if (quantity <= 0) return;
 
-        Product product = catalog.findByld(productId);
+        Product product = catalog.findById(productId);
         if (product == null) return;
 
         for (CartItem item : items) {
